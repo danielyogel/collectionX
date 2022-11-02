@@ -1,0 +1,83 @@
+{
+  "name": "@daniely/collectionx",
+  "description": "MobX Collections",
+  "author": "Daniel Yogel",
+  "version": "0.0.1",
+  "license": "MIT",
+  "repository": "https://github.com/danielyogel/collectionX",
+  "main": "./dist/collectionX.cjs.js",
+  "module": "./dist/collectionX.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/collectionX.es.js",
+      "require": "./dist/collectionX.cjs.js"
+    },
+    "./dist/style.css": "./dist/style.css"
+  },
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "concurrently --group --raw \"vite\" \"tsc --noEmit --watch\" \"npm run ladle\" \"npm run test\"",
+    "build": "vite build && npm run build:types",
+    "build:types": "tsc --declaration --emitDeclarationOnly --outDir dist",
+    "typecheck": "tsc --noEmit",
+    "prepare": "npm run build",
+    "ladle": "npx ladle serve",
+    "ladle:build": "npx ladle build --out dist-ladle",
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
+  },
+  "engines": {
+    "node": ">=12"
+  },
+  "prettier": {
+    "useTabs": false,
+    "semi": true,
+    "tabWidth": 2,
+    "bracketSpacing": true,
+    "jsxBracketSameLine": false,
+    "singleQuote": true,
+    "trailingComma": "none",
+    "jsxSingleQuote": true,
+    "printWidth": 150,
+    "arrowParens": "avoid"
+  },
+  "dependencies": {
+    "@ladle/react": "^2.4.3",
+    "ahooks": "^3.7.1",
+    "csstype": "^3.1.1",
+    "fp-ts": "^2.12.3",
+    "lodash": "^4.17.21",
+    "mobx": "^6.6.2",
+    "mobx-react-lite": "^3.4.0",
+    "nanoid": "^4.0.0",
+    "tailwindcss": "^3.1.8",
+    "tsd": "^0.24.1",
+    "zod": "^3.19.1"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.185",
+    "@types/react": "^18.0.20",
+    "@types/react-dom": "^18.0.6",
+    "@types/ws": "^8.5.3",
+    "@vitejs/plugin-react": "^2.1.0",
+    "autoprefixer": "^10.4.11",
+    "classnames": "^2.3.2",
+    "concurrently": "^7.4.0",
+    "postcss": "^8.4.16",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-is": "^18.2.0",
+    "ts-toolbelt": "9.6.0",
+    "tslib": "^2.4.0",
+    "type-fest": "^3.1.0",
+    "typescript": "^4.8.3",
+    "vite": "^3.1.2",
+    "vitest": "^0.24.5"
+  },
+  "peerDependencies": {
+    "react": ">=16"
+  }
+}
